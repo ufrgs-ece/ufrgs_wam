@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<robot name ="wam" xmlns:xacro="http://ros.org/wiki/xacro">
+
+	<link name="world" />
+
+	<xacro:include filename="$(find wam_description)/xacro/wam.urdf.xacro" />
+
+	<joint name="world_wam_joint" type="fixed" static="true">
+		<parent link="world"/>
+		<child link="wam_origin" />
+		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+	</joint>
+
+</robot>

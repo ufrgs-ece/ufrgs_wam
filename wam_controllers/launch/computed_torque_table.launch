@@ -1,0 +1,16 @@
+<launch>
+       	<arg name="paused" default="true"/>
+
+	<include file="$(find wam_description)/launch/wam_table_sim.launch">
+		<arg name="paused" value="$(arg paused)"/>
+	</include>
+
+	<rosparam file="$(find wam_controllers)/config/computed_torque_control.yaml" command="load"/>
+
+	<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+		output="screen" ns="/wam" args="joint_state_controller computed_torque_controller"/>
+
+	<node name="robot_state_publisher" pkg="robot_state_publisher"
+		type="state_publisher"
+		ns="/wam" />
+</launch>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+  <name>wam_controllers</name>
+  <version>2.0.0</version>
+  <description>The wam_controllers package</description>
+  <maintainer email="fetter@ece.ufrgs.br">Walter Fetter Lages
+  	</maintainer>
+  <license>GPLv3</license>
+  <url type="website">http://www.ece.ufrgs.br/ufrgs_wam</url>
+  <author email="fetter@ece.ufrgs.br">Walter Fetter Lages</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>controller_interface</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>kdl_parser</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>urdf</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  
+  <run_depend>cmake_modules</run_depend>
+  <run_depend>controller_interface</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>control_msgs</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>kdl_parser</run_depend>
+
+  <export>
+    <controller_interface plugin="${prefix}/wam_controllers_plugins.xml"/>
+  </export>
+
+</package>

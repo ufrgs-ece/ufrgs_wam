@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="wam_base">
+
+	<link name="wam_origin"/>
+	
+	<link name="wam_link_base">
+  		<inertial>
+  	  		<mass value="9.97059584"/>
+	  		<origin xyz="-0.02017671 -0.26604706 -0.14071720" />
+	  		<inertia ixx="1.01232865" ixy="0.05992441" ixz="0.05388736" iyy="0.38443311" iyz="0.37488748" izz="0.82739198"/>
+		</inertial>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry name="wam_link_base_visual">
+				<mesh filename="package://wam_description/meshes/wambase.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+			<material name="LightGrey">
+				<color rgba="0.9 0.9 0.9 1.0"/>
+			</material>
+    		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+			<geometry name="wam_link_base_collision">
+				<mesh filename="package://wam_description/meshes/wambase.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+			<contact_coefficients kd="1.0" kp="1000.0" mu="0"/>
+		</collision>
+	</link>
+
+	<gazebo reference="wam_link_base">
+		<!-- <selfCollide>true</selfCollide> -->
+		<material>Gazebo/White</material>
+	</gazebo>
+
+
+	<joint name="wam_base_joint" type="fixed">
+		<!--origin rpy="0 0 0" xyz="-0.060 -0.140 0.206"/-->
+		<origin rpy="0 0 0" xyz="0.22 0.14 0.346"/>
+		<child link="wam_link_base"/>
+		<parent link="wam_origin"/>
+	</joint>
+
+	</xacro:macro>
+
+</robot>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>ufrgs_wam</name>
+  <version>2.0.0</version>
+  <description>The ufrgs_wam package</description>
+  <maintainer email="fetter@ece.ufrgs.br">Walter Fetter Lages
+  	</maintainer>
+  <license>GPLv3</license>
+  <url type="website">http://www.ece.ufrgs.br/~fetter/ufrgs_wam</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>wam_description</run_depend>
+  <run_depend>wam_controllers</run_depend>
+  
+  <export>
+    <metapackage/>
+  </export>
+</package>

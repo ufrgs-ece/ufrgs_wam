@@ -1,0 +1,13 @@
+<library path="lib/libwam_controllers">
+
+  <class name="wam_controllers/ComputedTorqueController"
+    type="wam_controllers::ComputedTorqueController"
+    base_class_type="controller_interface::ControllerBase">
+    <description>
+      The ComputedTorqueControllers linearizes the Barrett WAM dynamic
+      model.  The linearized inputs are joint accelerations.
+      It expects an EffortJointInterface type of hardware interface.
+    </description>
+  </class>
+
+</library>

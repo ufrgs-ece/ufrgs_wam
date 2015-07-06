@@ -1,0 +1,15 @@
+wam:
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 100
+
+    computed_torque_controller:
+      type: wam_controllers/ComputedTorqueController
+      joints:
+        - wam_joint_1
+        - wam_joint_2
+        - wam_joint_3
+        - wam_joint_4
+        - wam_joint_5
+        - wam_joint_6
+        - wam_joint_7

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="paused" default="false"/>
+
+	<!-- Start Gazebo -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="paused" value="$(arg paused)"/>
+		<arg name="world_name" value="worlds/empty_sky.world" />
+	</include>
+
+	<include file="$(find wam_description)/launch/wam_table.launch"/>
+</launch>

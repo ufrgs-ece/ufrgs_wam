@@ -1,0 +1,7 @@
+To publish reference:
+
+rostopic pub /wam/computed_torque_controller/command trajectory_msgs/JointTrajectoryPoint "[0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]" "[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]" "[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]" "[0.0, 0.0]"
+
+Arguments are positions, velocities, accelerations, effort, time from start in
+seconds and nanoseconds.
+

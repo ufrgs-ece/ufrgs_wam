@@ -1,0 +1,4 @@
+<launch>
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find wam_description)/xacro/wam_table.urdf.xacro'" />
+	<node name="wam_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model wam" respawn="false" output="screen" />
+</launch>

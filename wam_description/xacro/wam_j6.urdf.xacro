@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="wam_j6" params="parent">
+
+	<link name="wam_link_6">
+		<inertial>
+			<mass value="0.41797364"/>
+			<origin xyz="-0.00012262 -0.01703194 0.02468336" />
+			<inertia ixx="0.00093106" ixy="0.00000148" ixz="-0.00000201" iyy="0.00049833" iyz="-0.00022162" izz="0.00057483"/>
+		</inertial>
+		<visual>
+			<origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+			<geometry name="wam_link_6_visual">
+				<mesh filename="package://wam_description/meshes/wam6.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+			<material name="Grey">
+				<color rgba="0.75 0.75 0.75 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+			<geometry name="wam_link_6_collision">
+				<mesh filename="package://wam_description/meshes/wam6.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+			<contact_coefficients kd="1.0" kp="1000.0" mu="0"/>
+		</collision>
+	</link>
+
+	<gazebo reference="wam_link_6">
+		<material>Gazebo/White</material>
+		<selfCollide>true</selfCollide>
+	</gazebo>
+
+	<joint name="wam_joint_6" type="revolute">
+		<parent link="${parent}"/>
+		<child link="wam_link_6"/>
+		<origin rpy="-1.57079632679 0 0" xyz="0.0 0.0 0.0"/>
+		<axis xyz="0 0 1"/>
+		<limit effort="30" lower="-1.6" upper="1.6" velocity="2.0"/>
+		<!-- <joint_properties damping="100.0" friction="1000.0" /> -->
+		<dynamics damping="0.05" friction="0.0"/>
+	</joint>
+
+	<transmission name="j6_transmission">
+		<type>transmission_interface/SimpleTransmission"</type>
+		<joint name="wam_joint_6">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+		</joint>
+		<actuator name="j6_motor">
+			<hardwareInterface>EffortJointInterface</hardwareInterface>
+			<mechanicalReduction>1</mechanicalReduction>
+		</actuator>
+	</transmission>
+
+  </xacro:macro>
+
+</robot>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<property name="M_PI" value="3.1415926535897931" />
+
+  <xacro:macro name="wam_tool_plate" params="parent">
+
+    <link name="wam_tool_plate">
+        <inertial>
+            <mass value="0.0001" />
+            <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+            <geometry name="wam_tool_plate_visual">
+              <box size="0.001 0.001 0.001" />
+            </geometry>
+            <material name="Grey" >
+                <color rgba="0.75 0.75 0.75 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry name="wam_base_collision">
+              <box size="0.001 0.001 0.001" />
+            </geometry>
+            <contact_coefficients kd="1.0" kp="1000.0" mu="0"/>
+        </collision>
+    </link>
+    <gazebo reference="wam_tool_plate">
+        <material>Gazebo/White</material>
+        <selfCollide>true</selfCollide>
+    </gazebo>
+
+    <joint name="wam_tool_plate_joint" type="fixed">
+        <parent link="${parent}"/>
+        <child link="wam_tool_plate"/>
+        <!--origin xyz="-0.045 -0.3 0.0" rpy="${M_PI/2} 0 0" /-->
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+     </joint>
+
+  </xacro:macro>
+
+</robot>

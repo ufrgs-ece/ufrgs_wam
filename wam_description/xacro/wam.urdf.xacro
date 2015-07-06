@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<robot name="wam" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find wam_description)/xacro/wam_base.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j1.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j2.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j3.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j4.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j5.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j6.urdf.xacro" />
+  <xacro:include filename="$(find wam_description)/xacro/wam_j7.urdf.xacro" />
+
+  <xacro:include filename="$(find wam_description)/xacro/wam_tool_plate.urdf.xacro" />
+
+  <xacro:wam_base>
+  </xacro:wam_base>
+  <xacro:wam_j1 parent="wam_link_base">
+  </xacro:wam_j1>
+  <xacro:wam_j2 parent="wam_link_1">
+  </xacro:wam_j2>
+  <xacro:wam_j3 parent="wam_link_2">
+  </xacro:wam_j3>
+  <xacro:wam_j4 parent="wam_link_3">
+  </xacro:wam_j4>
+  <xacro:wam_j5 parent="wam_link_4">
+  </xacro:wam_j5>
+  <xacro:wam_j6 parent="wam_link_5">
+  </xacro:wam_j6>
+  <xacro:wam_j7 parent="wam_link_6">
+  </xacro:wam_j7>
+  <xacro:wam_tool_plate parent="wam_link_7">
+  </xacro:wam_tool_plate>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" >
+      <robotNamespace>/wam</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <controlPeriod>0.001</controlPeriod>
+    </plugin>
+  </gazebo>
+
+</robot>

@@ -1,0 +1,9 @@
+KDL specifies the inertia in the reference frame of the link, the URDF
+ specifies the inertia in the inertia reference frame.
+
+A KDL segment is an ideal rigid body to which one single Joint is connected
+and one single tip frame.  It contains:
+
+- a Joint located at the root frame of the Segment.
+- a Frame describing the pose between the end of the Joint and the tip
+frame of the Segment.
