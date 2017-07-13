@@ -7,7 +7,7 @@
 	<link name="wam_link_7">
 		<inertial>
 			<mass value="0.06864753"/>
-			<origin xyz="-0.00007974 0.00016313 -0.00323552" />
+			<origin xyz="-0.000221 0.000121 0.056434" />
 			<inertia ixx="0.00003845" ixy="-0.00000019" ixz="0.00000002" iyy="0.00003878" iyz="-0.00000004" izz="0.00007408"/>
 		</inertial>
 		<visual>
